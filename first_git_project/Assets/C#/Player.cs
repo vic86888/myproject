@@ -25,13 +25,7 @@ public class Player : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        // Vector3 move = new Vector3(h, 0f, v).normalized * moveSpeed;
-        // 將輸入值與角色目前的面向（前後、左右）結合
-        Vector3 moveDirection = (transform.right * h + transform.forward * v).normalized;
-
-        // 計算最終的移動速度向量
-        Vector3 move = moveDirection * moveSpeed;
-
+        Vector3 move = new Vector3(h, 0f, v).normalized * moveSpeed;
         rb.linearVelocity = new Vector3(move.x, rb.linearVelocity.y, move.z);
     }
 
